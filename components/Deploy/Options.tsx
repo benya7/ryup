@@ -124,7 +124,7 @@ export default function Options({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [secretInputValue]);
 
-	  useEffect(() => {
+  useEffect(() => {
     if (!triggerReset) return;
     clearGuardiansList();
     setGuardianInputValue("");
