@@ -2,8 +2,8 @@
 # ryup - Universal Profile Social Recovery
 ### Participant
 
-Name: **Lucas Jovanovich | en0c-026**
-Email: **bitup.games@gmail.com**
+- Name: **Lucas Jovanovich | en0c-026**
+- Email: **bitup.games@gmail.com**
 
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
