@@ -5,7 +5,7 @@ interface Props {
   label: string;
   icon?: ReactNode;
   onClick: () => void;
-  disabled: boolean;
+  disabled?: boolean;
   isLoading?: boolean;
   color?: string;
 }

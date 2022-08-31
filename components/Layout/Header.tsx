@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEthers } from "@usedapp/core";
-import { Button, DarkThemeToggle, Navbar, Spinner } from "flowbite-react";
+import { Button, DarkThemeToggle, Navbar } from "flowbite-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";

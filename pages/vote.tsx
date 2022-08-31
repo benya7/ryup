@@ -1,6 +1,7 @@
 import { useEthers } from "@usedapp/core";
 import { isAddress } from "ethers/lib/utils";
 import { Label, TextInput } from "flowbite-react";
+import Head from "next/head";
 import { useCallback, useEffect, useMemo } from "react";
 import ActionButton from "../components/Common/ActionButton";
 import ActionCard from "../components/Common/ActionCard";
@@ -108,54 +109,56 @@ export default function Vote() {
     console.log(isLoading);
   }, [isLoading]);
   return (
-  	<>
+    <>
       <Head>
         <title>{textContent.vote.title}</title>
         <meta name="" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    <div className="w-full">
-      <div className="mx-auto my-4 w-full sm:w-96">
-        <UniversalProfileAddressLabel
-          address={upAddress}
-          handleChangeInput={handleChangeUpAddress}
-          error={upAddressInputError}
-        />
-      </div>
-      <div className="flex flex-wrap items-center justify-evenly">
-        <ActionCard title="Vote New Address">
-          <div className="flex h-3/4 w-full flex-col justify-between">
-            <Label>
-              <InfoTooltip msg={textContent.common.tooltipMsg.votingId} />
-              <p className="mb-1 inline-flex align-middle">Voting ID:</p>
-              <TextInput
-                value={votingIdInputValue}
-                onChange={handleChangeVotingIdInputValue}
-              />
-            </Label>
-            <Label>
-              <InfoTooltip msg={textContent.common.tooltipMsg.votingAddress} />
-              <p className="mb-1 inline-flex align-middle">Address:</p>
-              <TextInput
-                value={newAddressInputValue}
-                onChange={handleChangeNewAddressInputValue}
-              />
-              {newAddressInputError && (
-                <LabelError label={newAddressInputError} />
-              )}
-            </Label>
-            <div className="self-center">
-              <ActionButton
-                label="Vote"
-                disabled={!isReadyVote}
-                isLoading={isLoading}
-                onClick={handleClickVote}
-              />
+      <div className="w-full">
+        <div className="mx-auto my-4 w-full sm:w-96">
+          <UniversalProfileAddressLabel
+            address={upAddress}
+            handleChangeInput={handleChangeUpAddress}
+            error={upAddressInputError}
+          />
+        </div>
+        <div className="flex flex-wrap items-center justify-evenly">
+          <ActionCard title="Vote New Address">
+            <div className="flex h-3/4 w-full flex-col justify-between">
+              <Label>
+                <InfoTooltip msg={textContent.common.tooltipMsg.votingId} />
+                <p className="mb-1 inline-flex align-middle">Voting ID:</p>
+                <TextInput
+                  value={votingIdInputValue}
+                  onChange={handleChangeVotingIdInputValue}
+                />
+              </Label>
+              <Label>
+                <InfoTooltip
+                  msg={textContent.common.tooltipMsg.votingAddress}
+                />
+                <p className="mb-1 inline-flex align-middle">Address:</p>
+                <TextInput
+                  value={newAddressInputValue}
+                  onChange={handleChangeNewAddressInputValue}
+                />
+                {newAddressInputError && (
+                  <LabelError label={newAddressInputError} />
+                )}
+              </Label>
+              <div className="self-center">
+                <ActionButton
+                  label="Vote"
+                  disabled={!isReadyVote}
+                  isLoading={isLoading}
+                  onClick={handleClickVote}
+                />
+              </div>
             </div>
-          </div>
-        </ActionCard>
+          </ActionCard>
+        </div>
       </div>
-    </div>
     </>
   );
 }

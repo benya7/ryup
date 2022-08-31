@@ -156,7 +156,9 @@ export default function Deploy(): JSX.Element {
               {isLoading && (
                 <FiCompass className="h-10 w-10 animate-spin-slow dark:text-white" />
               )}
-              <p className="text-sm text-center dark:text-white">{deployStep}</p>
+              <p className="text-center text-sm dark:text-white">
+                {deployStep}
+              </p>
               {bsrAddress !== "" && (
                 <div className="dark:text-white">
                   <p className="text-center text-sm">BSR address:</p>

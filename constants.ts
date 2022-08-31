@@ -118,10 +118,9 @@ export const textContent = {
   vote: {
     title: "RyUP - Vote",
   },
-  Recover: {
+  recover: {
     title: "RyUP - Recover",
   },
-};
 };
 
 export const supportedChains: { [key: string]: Chain } = {

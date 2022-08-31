@@ -2,6 +2,7 @@
 import { useEthers } from "@usedapp/core";
 import { isAddress } from "ethers/lib/utils";
 import { Label, TextInput } from "flowbite-react";
+import Head from "next/head";
 import { useCallback, useEffect, useMemo } from "react";
 import { FiDelete } from "react-icons/fi";
 import ActionButton from "../components/Common/ActionButton";
@@ -274,130 +275,130 @@ export default function Manage() {
   ]);
 
   return (
-  <>
+    <>
       <Head>
         <title>{textContent.manage.title}</title>
         <meta name="" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    <div className="w-full">
-      <div className="mx-auto my-4 w-full sm:w-96">
-        <UniversalProfileAddressLabel
-          address={upAddress}
-          handleChangeInput={handleChangeUpAddress}
-          error={upAddressInputError}
-        />
-      </div>
-      <div className="flex flex-wrap items-center justify-evenly">
-        <ActionCard title="Add Guardians">
-          <div className="flex h-3/4 w-full flex-col justify-between">
-            <TextInputWithList
-              label="Guardian Address:"
-              handleChangeInputValue={handleChangeGuardianInputValue}
-              inputValue={guardianInputValue}
-              inputValueError={guardianInputError}
-              itemsList={newGuardiansList}
-              addItem={handleClickAddGuardianItem}
-              removeItem={removeNewGuardianItem}
-              tooltipMsg={textContent.common.tooltipMsg.guardians}
-            />
-            <div className="self-center">
-              <ActionButton
-                label="Add"
-                disabled={!isReadyUpdateGuardians}
-                onClick={handleClickAddGuardians}
-                isLoading={isLoadingAddGuardians}
+      <div className="w-full">
+        <div className="mx-auto my-4 w-full sm:w-96">
+          <UniversalProfileAddressLabel
+            address={upAddress}
+            handleChangeInput={handleChangeUpAddress}
+            error={upAddressInputError}
+          />
+        </div>
+        <div className="flex flex-wrap items-center justify-evenly">
+          <ActionCard title="Add Guardians">
+            <div className="flex h-3/4 w-full flex-col justify-between">
+              <TextInputWithList
+                label="Guardian Address:"
+                handleChangeInputValue={handleChangeGuardianInputValue}
+                inputValue={guardianInputValue}
+                inputValueError={guardianInputError}
+                itemsList={newGuardiansList}
+                addItem={handleClickAddGuardianItem}
+                removeItem={removeNewGuardianItem}
+                tooltipMsg={textContent.common.tooltipMsg.guardians}
               />
+              <div className="self-center">
+                <ActionButton
+                  label="Add"
+                  disabled={!isReadyUpdateGuardians}
+                  onClick={handleClickAddGuardians}
+                  isLoading={isLoadingAddGuardians}
+                />
+              </div>
             </div>
-          </div>
-        </ActionCard>
-        <ActionCard title="Remove Guardians">
-          <div className="h-3/4 w-full">
-            <Label>
-              <InfoTooltip msg="List of the current guardians in the contract. Number of guardians can't be less than threshold." />
-              <p className="mb-1 inline-flex align-middle">
-                Current Guardians:
-              </p>
-            </Label>
-            <div className="flex h-4/5 max-h-48 items-center justify-center overflow-y-auto text-center">
-              {currentGuardiansList.length > 0 ? (
-                <ul className="space-y-2 dark:text-white">
-                  {currentGuardiansList.map((item, i) => (
-                    <li key={i}>
-                      <p className="text-right text-[0.65rem] sm:text-xs">
-                        {item}
-                        <FiDelete
-                          className="ml-1 inline align-text-top text-red-600 hover:cursor-pointer dark:text-red-400"
-                          onClick={() => {
-                            removeGuardian(item)
-                              .then((receipt) => {
-                                removeCurrentGuardianItem(item);
-                                console.log(receipt);
-                                setEthersSuccess(
-                                  "removeGuardian executed succesfully"
-                                );
-                              })
-                              .catch((e) => handleError(e, setEthersError));
-                          }}
-                        />
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-center text-xs  text-gray-500 sm:text-sm">
-                  There are no items in the list.
+          </ActionCard>
+          <ActionCard title="Remove Guardians">
+            <div className="h-3/4 w-full">
+              <Label>
+                <InfoTooltip msg="List of the current guardians in the contract. Number of guardians can't be less than threshold." />
+                <p className="mb-1 inline-flex align-middle">
+                  Current Guardians:
                 </p>
-              )}
+              </Label>
+              <div className="flex h-4/5 max-h-48 items-center justify-center overflow-y-auto text-center">
+                {currentGuardiansList.length > 0 ? (
+                  <ul className="space-y-2 dark:text-white">
+                    {currentGuardiansList.map((item, i) => (
+                      <li key={i}>
+                        <p className="text-right text-[0.65rem] sm:text-xs">
+                          {item}
+                          <FiDelete
+                            className="ml-1 inline align-text-top text-red-600 hover:cursor-pointer dark:text-red-400"
+                            onClick={() => {
+                              removeGuardian(item)
+                                .then((receipt) => {
+                                  removeCurrentGuardianItem(item);
+                                  console.log(receipt);
+                                  setEthersSuccess(
+                                    "removeGuardian executed succesfully"
+                                  );
+                                })
+                                .catch((e) => handleError(e, setEthersError));
+                            }}
+                          />
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-center text-xs  text-gray-500 sm:text-sm">
+                    There are no items in the list.
+                  </p>
+                )}
+              </div>
             </div>
-          </div>
-        </ActionCard>
-        <ActionCard title="Change Secret">
-          <div className="flex h-3/4 w-full flex-col justify-between">
-            <PasswordInput
-              label="Secret:"
-              inputValue={secretInputValue}
-              handleChangeInputValue={handleChangeSecretInputValue}
-              tooltipMsg={textContent.common.tooltipMsg.secret}
-            />
-            <div className="self-center">
-              <ActionButton
-                label="Change"
-                disabled={!isReadyChangeSecret}
-                onClick={handleClickChangeSecret}
-                isLoading={isLoadingChangeSecret}
+          </ActionCard>
+          <ActionCard title="Change Secret">
+            <div className="flex h-3/4 w-full flex-col justify-between">
+              <PasswordInput
+                label="Secret:"
+                inputValue={secretInputValue}
+                handleChangeInputValue={handleChangeSecretInputValue}
+                tooltipMsg={textContent.common.tooltipMsg.secret}
               />
+              <div className="self-center">
+                <ActionButton
+                  label="Change"
+                  disabled={!isReadyChangeSecret}
+                  onClick={handleClickChangeSecret}
+                  isLoading={isLoadingChangeSecret}
+                />
+              </div>
             </div>
-          </div>
-        </ActionCard>
-        <ActionCard title="Change Threshold">
-          <div className="flex h-3/4 w-full flex-col justify-between">
-            <Label>
-              <InfoTooltip msg={textContent.common.tooltipMsg.threshold} />
-              <p className="mb-1 inline-flex align-middle">Threshold:</p>
-              <TextInput
-                type="number"
-                min={1}
-                max={10000}
-                value={thresholdInputValue}
-                onChange={handleChangeThresholdInputValue}
-              />
-              {thresholdInputError && (
-                <LabelError label={thresholdInputError} />
-              )}
-            </Label>
-            <div className="self-center">
-              <ActionButton
-                label="Change"
-                disabled={!isReadyChangeThreshold}
-                onClick={handleClickChangeThreshold}
-                isLoading={isLoadingChangeThreshold}
-              />
+          </ActionCard>
+          <ActionCard title="Change Threshold">
+            <div className="flex h-3/4 w-full flex-col justify-between">
+              <Label>
+                <InfoTooltip msg={textContent.common.tooltipMsg.threshold} />
+                <p className="mb-1 inline-flex align-middle">Threshold:</p>
+                <TextInput
+                  type="number"
+                  min={1}
+                  max={10000}
+                  value={thresholdInputValue}
+                  onChange={handleChangeThresholdInputValue}
+                />
+                {thresholdInputError && (
+                  <LabelError label={thresholdInputError} />
+                )}
+              </Label>
+              <div className="self-center">
+                <ActionButton
+                  label="Change"
+                  disabled={!isReadyChangeThreshold}
+                  onClick={handleClickChangeThreshold}
+                  isLoading={isLoadingChangeThreshold}
+                />
+              </div>
             </div>
-          </div>
-        </ActionCard>
+          </ActionCard>
+        </div>
       </div>
-    </div>
     </>
   );
 }

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEthers } from "@usedapp/core";
 import { Label, TextInput } from "flowbite-react";
+import Head from "next/head";
 import { useCallback, useEffect, useMemo } from "react";
 import { RecoverOwnershipParams } from "ryup-social-recovery-tool";
 import ActionButton from "../components/Common/ActionButton";
@@ -157,57 +158,57 @@ export default function Recover() {
   ]);
 
   return (
-  <>
+    <>
       <Head>
         <title>{textContent.recover.title}</title>
         <meta name="" content="" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    <div className="w-full">
-      <div className="mx-auto my-4 w-full sm:w-96">
-        <UniversalProfileAddressLabel
-          address={upAddress}
-          handleChangeInput={handleChangeUpAddress}
-          error={upAddressInputError}
-        />
-      </div>
-      <div className="flex flex-wrap items-center justify-evenly">
-        <ActionCard title="Recover Ownership" height="h-96">
-          <div className="flex h-4/5 w-full flex-col justify-between">
-            <Label>
-              <InfoTooltip msg={textContent.common.tooltipMsg.votingIdB} />
-              <p className="mb-1 inline-flex align-middle">VotingID:</p>
-              <TextInput
-                value={votingIdInputValue}
-                onChange={handleChangeVotingIdInputValue}
+      <div className="w-full">
+        <div className="mx-auto my-4 w-full sm:w-96">
+          <UniversalProfileAddressLabel
+            address={upAddress}
+            handleChangeInput={handleChangeUpAddress}
+            error={upAddressInputError}
+          />
+        </div>
+        <div className="flex flex-wrap items-center justify-evenly">
+          <ActionCard title="Recover Ownership" height="h-96">
+            <div className="flex h-4/5 w-full flex-col justify-between">
+              <Label>
+                <InfoTooltip msg={textContent.common.tooltipMsg.votingIdB} />
+                <p className="mb-1 inline-flex align-middle">VotingID:</p>
+                <TextInput
+                  value={votingIdInputValue}
+                  onChange={handleChangeVotingIdInputValue}
+                />
+              </Label>
+              <Label>
+                <InfoTooltip msg={textContent.common.tooltipMsg.secretB} />
+                <p className="mb-1 inline-flex align-middle">Secret:</p>
+                <TextInput
+                  value={secretInputValue}
+                  onChange={handleChangeSecretInputValue}
+                />
+              </Label>
+              <PasswordInput
+                label="New Secret:"
+                inputValue={newSecretInputValue}
+                handleChangeInputValue={handleChangeNewSecretInputValue}
+                tooltipMsg={textContent.common.tooltipMsg.newSecret}
               />
-            </Label>
-            <Label>
-              <InfoTooltip msg={textContent.common.tooltipMsg.secretB} />
-              <p className="mb-1 inline-flex align-middle">Secret:</p>
-              <TextInput
-                value={secretInputValue}
-                onChange={handleChangeSecretInputValue}
-              />
-            </Label>
-            <PasswordInput
-              label="New Secret:"
-              inputValue={newSecretInputValue}
-              handleChangeInputValue={handleChangeNewSecretInputValue}
-              tooltipMsg={textContent.common.tooltipMsg.newSecret}
-            />
-            <div className="self-center">
-              <ActionButton
-                label="Recover"
-                disabled={!isReadyRecover}
-                isLoading={isLoading}
-                onClick={handleClickRecover}
-              />
+              <div className="self-center">
+                <ActionButton
+                  label="Recover"
+                  disabled={!isReadyRecover}
+                  isLoading={isLoading}
+                  onClick={handleClickRecover}
+                />
+              </div>
             </div>
-          </div>
-        </ActionCard>
+          </ActionCard>
+        </div>
       </div>
-    </div>
     </>
   );
 }
