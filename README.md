@@ -15,7 +15,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/en0c-026/ryup/blob/master/public/logo.png">
-    <img src="public/favicon.png" alt="Logo" width="48" height="48">
+    <img src="public/logo.png" alt="Logo" width="48" height="48">
   </a>
 
 <h3 align="center">ryup</h3>
