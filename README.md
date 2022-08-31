@@ -1,13 +1,20 @@
+# LUKSO Build UP! #1 Hackathon - Submission Information
 # ryup - Universal Profile Social Recovery
+### Participant
+
+Name: **Lucas Jovanovich | en0c-026**
+Email: **bitup.games@gmail.com**
 
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 
 
+
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/en0c-026/ryup">
+  <a href="https://github.com/en0c-026/ryup/blob/master/public/logo.png">
     <img src="public/favicon.png" alt="Logo" width="48" height="48">
   </a>
 
@@ -22,11 +29,10 @@
     <a href="https://ryup.vercel.app">Live Dapp Demo</a>
     ·
     <a href="https://youtu.be/1wi7zcAYTsw">View Demo</a>
-
     ·
-    <a href="https://github.com/en0c-026/ryup/issues/new?title=Bug: ">Report Bug</a>
+    <a href="https://github.com/en0c-026/ryup/issues/new?title=Bug:">Report Bug</a>
     ·
-    <a href="https://github.com/en0c-026/ryup/issues/new?title=Feature: ">Request Feature</a>
+    <a href="https://github.com/en0c-026/ryup/issues/new?title=Feature:">Request Feature</a>
   </p>
 </div>
 
