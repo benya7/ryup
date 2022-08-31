@@ -180,7 +180,10 @@ Distributed under the MIT License. See [LICENSE](https://github.com/en0c-026/ryu
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Participant
 
+Name: Lucas Jovanovich | en0c-026
+Email: bitup.games@gmail.com
 
 <!-- CONTACT -->
 ## Contact
