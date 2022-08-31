@@ -14,11 +14,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/en0c-026/ryup/blob/master/public/logo.png">
-    <img src="public/logo.png" alt="Logo" width="48" height="48">
-  </a>
-
-<h3 align="center">ryup</h3>
+<h3 align="center">RyUP</h3>
 
   <p align="center">
     Recover your Universal Profile
